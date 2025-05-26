@@ -94,10 +94,12 @@ function calculateDensity() {
   }
 
   let density;
-  if (equation === "105") {
-    density = C1 + C2 * T + C3 * T ** 2 + C4 * T ** 3;
-  } else if (equation === "2-100") {
-    density = C1 / (1 + C2 * T + C3 * T ** 2 + C4 * T ** 3);
+  if (equation === "2-100") {
+    density = (C1 + C2 * T + C3 * T ** 2 + C4 * T ** 3)*MW;
+    densityae = density*0.06242796;
+  } else if (equation === "105") {
+    density = (C1 / Math.pow(C2, 1 + Math.pow((1 - (T / C3)), C4)))*MW;
+    densityae = density*0.06242796;
   } else {
     resultDiv.innerHTML = "❗ Unknown equation type.";
     return;
@@ -106,6 +108,6 @@ function calculateDensity() {
   resultDiv.innerHTML = `
     <strong>Density for ${substance}:</strong><br>
     ${density.toFixed(3)} kg/m³<br>
-    Molecular Weight: ${MW} g/mol
+    ${densityae.toFixed(3)} lb/ft³
   `;
 }
