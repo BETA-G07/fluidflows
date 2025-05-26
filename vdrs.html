@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shear Stress & Rate Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo-link">
+      <img src="logo.jpg" alt="Home" class="logo" />
+    </a>
+    <div class="header-text">
+      <h1>Fluid Flow Calculator</h1>
+  </header>
+
+<div class="container">
+
+    <h2>Density Calculator</h2>
+    <p>Select a substance or choose "Custom" to input your own constants:</p>
+
+    <div class="calculator">
+      <label for="substanceSelectDensity">Substance:</label>
+      <select id="substanceSelectDensity">
+        <option value="">-- Select Substance --</option>
+      </select>
+
+      <div id="customDensityInputs" style="display: none;">
+        <label for="equationTypeDensity">Equation Type:</label>
+        <select id="equationTypeDensity">
+          <option value="105">Equation 105</option>
+          <option value="2-100">Equation 2-100</option>
+        </select>
+
+        <label for="mwDensity">Molecular Weight (g/mol):</label>
+        <input type="number" id="mwDensity" step="any" />
+
+        <label for="c1Density">C1:</label>
+        <input type="number" id="c1Density" step="any" />
+
+        <label for="c2Density">C2:</label>
+        <input type="number" id="c2Density" step="any" />
+
+        <label for="c3Density">C3:</label>
+        <input type="number" id="c3Density" step="any" />
+
+        <label for="c4Density">C4:</label>
+        <input type="number" id="c4Density" step="any" />
+      </div>
+
+      <label for="tempDensity">Temperature (K):</label>
+      <input type="number" id="tempDensity" placeholder="Enter temperature in Kelvin" />
+
+      <button onclick="calculateDensity()">Calculate Density</button>
+
+      <div id="densityResult"></div>
+    </div>
+
+    <h2>Viscosity Calculator</h2>
+    <p>Select a substance or choose "Custom" to input your own constants:</p>
+
+    <div class="calculator">
+      <label for="substanceSelect">Substance:</label>
+      <select id="substanceSelect">
+        <option value="">-- Select Substance --</option>
+      </select>
+
+      <div id="customInputs" style="display: none;">
+        <label for="equationSelect">Equation Type:</label>
+        <select id="equationSelect">
+          <option value="101">Equation 101</option>
+          <option value="100">Equation 100</option>
+        </select>
+
+        <label for="c1">C1:</label>
+        <input type="number" id="c1" step="any" />
+
+        <label for="c2">C2:</label>
+        <input type="number" id="c2" step="any" />
+
+        <label for="c3">C3:</label>
+        <input type="number" id="c3" step="any" />
+
+        <label for="c4">C4:</label>
+        <input type="number" id="c4" step="any" />
+
+        <label for="c5">C5:</label>
+        <input type="number" id="c5" step="any" />
+      </div>
+
+      <label for="tempVisc">Temperature (K):</label>
+      <input type="number" id="tempVisc" placeholder="Enter temperature in Kelvin" />
+
+      <button onclick="calculateViscosity()">Calculate Viscosity</button>
+
+      <div id="viscosityResult"></div>
+    </div>
+
+     <h2>Reynolds Number Calculator</h2>
+
+        <form id="reynoldsForm">
+            <label for="unitSystem">Unit System:</label>
+            <select id="unitSystem">
+                <option value="si">SI</option>
+                <option value="ae">AE</option>
+            </select><br><br>
+
+            <label for="velocity">Flow Velocity:</label>
+            <input type="number" id="velocity" inputmode="decimal" step="any" required />
+            <span id="velocityUnit">m/s</span><br><br>
+
+            <label for="density">Fluid Density:</label>
+            <input type="number" id="density" inputmode="decimal" step="any" required />
+            <span id="densityUnit">kg/m³</span><br><br>
+
+            <label for="viscosity">Viscosity:</label>
+            <input type="number" id="viscosity" inputmode="decimal" step="any" required />
+            <span id="viscosityUnit">Pa·s</span><br><br>
+
+            <label for="diameter">Pipe Diameter:</label>
+            <input type="number" id="diameter" inputmode="decimal" step="any" required />
+            <span id="diameterUnit">m</span><br><br>
+
+            <button type="submit">Calculate Reynolds Number</button>
+        </form>
+
+        <div id="result"></div>
+   </div>
+
+  <script src="reynolds.js"></script>
+  <script src="density4.js"></script>
+  <script src="viscosity4.js"></script>
+</body>
+</html>

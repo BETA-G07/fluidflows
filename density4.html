@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Density Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo-link">
+      <img src="logo.jpg" alt="Home" class="logo" />
+    </a>
+    <div class="header-text">
+      <h1>Fluid Flow Calculator</h1>
+    </div>
+  </header>
+
+  <div class="container">
+    <h2>Density Calculator</h2>
+    <p>Select a substance or choose "Custom" to input your own constants:</p>
+
+    <div class="calculator">
+      <label for="substanceSelectDensity">Substance:</label>
+      <select id="substanceSelectDensity">
+        <option value="">-- Select Substance --</option>
+      </select>
+
+      <div id="customDensityInputs" style="display: none;">
+        <label for="equationTypeDensity">Equation Type:</label>
+        <select id="equationTypeDensity">
+          <option value="105">Equation 105</option>
+          <option value="2-100">Equation 2-100</option>
+        </select>
+
+        <label for="mwDensity">Molecular Weight (g/mol):</label>
+        <input type="number" id="mwDensity" step="any" />
+
+        <label for="c1Density">C1:</label>
+        <input type="number" id="c1Density" step="any" />
+
+        <label for="c2Density">C2:</label>
+        <input type="number" id="c2Density" step="any" />
+
+        <label for="c3Density">C3:</label>
+        <input type="number" id="c3Density" step="any" />
+
+        <label for="c4Density">C4:</label>
+        <input type="number" id="c4Density" step="any" />
+      </div>
+
+      <label for="tempDensity">Temperature (K):</label>
+      <input type="number" id="tempDensity" placeholder="Enter temperature in Kelvin" />
+
+      <button onclick="calculateDensity()">Calculate Density</button>
+
+      <div id="densityResult"></div>
+    </div>
+  </div>
+
+  <script src="density4.js"></script>
+</body>
+</html>

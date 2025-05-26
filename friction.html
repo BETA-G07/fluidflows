@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fluid Flow Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo-link">
+      <img src="logo.jpg" alt="Home" class="logo" />
+    </a>
+    <div class="header-text">
+      <h1>Fluid Flow Calculator</h1>
+    </div>
+  </header>
+
+  <div class="container">
+    <h2>Friction Factor Calculator</h2>
+    <p>The formulas used in this Friction Factor Calculator are taken from Perry's Chemical Engineer's Handbook 9th Edition.<br>
+    Surface Roughness: Table 6-2 Values of Surface Roughness for various materials<br>
+    Churchill Equation for Turbulent Flow: Eqn (6-38)<br>
+    Hagen-Poiseuille Equation for Laminar Flow: Eqn (6-34)</p>
+
+    <div class="calculator">
+      <label for="flowType">Flow Type:
+        <select id="flowType">
+          <option value="laminar">Laminar</option>
+          <option value="turbulent">Turbulent</option>
+        </select>
+      </label><br><br>
+
+      <label>Surface Roughness (m): <input type="number" id="surfroug" step="any"></label><br>
+      <label>Pipe Diameter (m): <input type="number" id="diameter" step="any"></label><br>
+      <label>Reynold's Number: <input type="number" id="reynolds" step="any"></label><br><br>
+
+      <button id="calculateButton">Calculate</button>
+      <p id="result"></p>
+    </div>
+  </div>
+
+  <script src="friction.js"></script>
+</body>
+</html>
+
