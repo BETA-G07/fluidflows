@@ -97,15 +97,14 @@ function calculateViscosity() {
   let viscosity_Pa_s;
   if (equation === "101") {
     viscosity_Pa_s = Math.exp(C1 + (C2 / T) + C3 * Math.log(T) + C4 * Math.pow(T, C5));
+    viscosity_lbfts = viscosity_Pa_s * 0.6719689948133;
   } else if (equation === "100") {
     viscosity_Pa_s = C1 + C2 * T + C3 * T ** 2 + C4 * T ** 3 + C5 * T ** 4;
+    viscosity_lbfts = viscosity_Pa_s * 0.6719689948133;
   } else {
     resultDiv.innerHTML = "❗ Unknown equation type.";
     return;
   }
-
-  const conversionFactor = (equation === "101") ? 0.6719689948133 : 0.02088543;
-  const viscosity_lbfts = viscosity_Pa_s * conversionFactor;
 
   resultDiv.innerHTML = `
     <strong>Viscosity for ${substance}:</strong><br>
